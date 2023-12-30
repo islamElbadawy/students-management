@@ -6,10 +6,12 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { StudentsService } from './students.service';
 import { CreateStudentDto } from './dto/create-student.dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto/update-student.dto';
+import { JwtAuthGuard } from 'src/auth/jwt.guard';
 
 @Controller('students')
 export class StudentsController {
@@ -25,11 +27,13 @@ export class StudentsController {
     return this.studentService.findOne(+id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   createStudent(@Body() createStudentDto: CreateStudentDto) {
     return this.studentService.createStudent(createStudentDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch(':id')
   updateStudent(
     @Param('id') id: string,
@@ -38,6 +42,7 @@ export class StudentsController {
     return this.studentService.updateStudent(+id, updateStudentDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   deleteStudent(@Param('id') id: string) {
     return this.studentService.removeStudent(+id);
