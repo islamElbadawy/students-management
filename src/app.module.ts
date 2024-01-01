@@ -14,7 +14,7 @@ import { UsersModule } from './users/users.module';
     StudentsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'db',
+      host: 'dpg-cm9er4fqd2ns73dpp7e0-a',
       url: process.env.DATABASE_URL,
       port: 5432,
       username: 'islam',
