@@ -14,13 +14,18 @@ import { UsersModule } from './users/users.module';
     StudentsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
+      host: 'db',
       url: process.env.DATABASE_URL,
       port: 5432,
       username: 'islam',
-      password: process.env.DATABASE_PASSORD,
+      password: process.env.DATABASE_PASSWORD,
       database: 'sms_uozd',
       autoLoadEntities: true,
       synchronize: false,
+      logging: true, // Set to false in production to disable query logging
+      entities: [__dirname + '/**/*.entity{.ts,.js}'], // Specify the path to your entities
+      migrations: [__dirname + '/migrations/*{.ts,.js}'], // Specify the path to your migrations
+      migrationsRun: true,
     }),
     AuthModule,
     PassportModule,
