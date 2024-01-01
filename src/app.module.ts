@@ -19,7 +19,7 @@ import { UsersModule } from './users/users.module';
       username: 'islam',
       password: '4VwY4oAou5T3trBHp1vZiAp1YG6LFZa3',
       database: 'sms_uozd',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      // entities: [__dirname + '/**/*.entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: false,
     }),
