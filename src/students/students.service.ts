@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { Student } from './entities/student.entity';
 import { CreateStudentDto } from './dto/create-student.dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto/update-student.dto';
@@ -8,6 +13,39 @@ import { Course } from './entities/course.entity';
 
 @Injectable()
 export class StudentsService {
+  // private students: any[] = [
+  //   {
+  //     id: 1,
+  //     name: 'Tina Turner',
+  //     age: 24,
+  //     address: ['1234 Elm Street', 'Springfield', 'USA'],
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'John Doe',
+  //     age: 19,
+  //     address: ['5678 Oak Avenue', 'Riverside', 'Canada'],
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Emily Johnson',
+  //     age: 22,
+  //     address: ['910 Pine Road', 'Maplewood', 'UK'],
+  //   },
+  //   {
+  //     id: 4,
+  //     name: 'Alex Rodriguez',
+  //     age: 20,
+  //     address: ['2345 Birch Lane', 'Hilltop', 'Australia'],
+  //   },
+  //   {
+  //     id: 5,
+  //     name: 'Sara Smith',
+  //     age: 25,
+  //     address: ['6789 Cedar Boulevard', 'Woodland', 'Germany'],
+  //   },
+  // ];
+
   constructor(
     @InjectRepository(Student)
     private readonly studentRepository: Repository<Student>,
